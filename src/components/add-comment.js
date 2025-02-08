@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
-import { defaultProfilePic } from "../default.jpg";
+import defaultProfilePic from "../default.jpg";
+import { comment } from "../data";
 
-export function AddComment({ commentList, setCommentList }) {
-  const [comment, setComment] = useState("");
-
+export function AddComment({ setCommentList }) {
+  const [commentText, setCommentText] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newComment = {
-      id: uuid(),
-      text: comment,
-      created: Date.now(),
-      by: "Unknown",
-      imageSrc: defaultProfilePic,
-    };
 
-    setCommentList((prevComments) => [...prevComments, newComment]);
-    setComment("");
+    setCommentList((prevComments) => [
+      ...prevComments,
+      comment("Unknown", commentText, defaultProfilePic, Date.now(), uuid()),
+    ]);
+    setCommentText("");
   };
   return (
     <form onSubmit={handleSubmit} className="card mb-3">
@@ -25,12 +21,12 @@ export function AddComment({ commentList, setCommentList }) {
         <div className="form-group">
           <textarea
             className="form-control form-control-sm"
-            onChange={(e) => setComment(e.target.value)}
+            onChange={(e) => setCommentText(e.target.value)}
             name="text"
-            value={comment}
+            value={commentText}
           />
           <button
-            disabled={comment.length === 0}
+            disabled={commentText.length === 0}
             className="btn btn-primary add-update-button"
             type="submit"
           >

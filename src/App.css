@@ -48,7 +48,7 @@ blockquote {
 }
 
 .view-update {
-  animation: appear 1 .5s forwards;
+  animation: appear 1 0.5s forwards;
   perspective: 400px;
 }
 .comments-list {
@@ -70,17 +70,17 @@ blockquote {
   position: relative;
 }
 .view-update.comments-open {
-    z-index: 1;
+  z-index: 1;
 }
 
 .comments-list {
   position: absolute;
   top: calc(100% - 16px);
   background: white;
-    left: -16px;
-    right: -16px;
-  box-shadow: 0 0 8px 2px #344E68;
-    padding: 16px;
+  left: -16px;
+  right: -16px;
+  box-shadow: 0 0 8px 2px #344e68;
+  padding: 16px;
 }
 
 .comments-list ul {
@@ -91,12 +91,12 @@ blockquote {
 .comments-list ul li {
   margin: 0;
   list-style-type: none;
-  border-top: 1px solid #E4C370;
+  border-top: 1px solid #e4c370;
   padding: 16px 0;
 }
 
 body {
-  background: #34394F url('naboobackground.png') fixed center center;
+  background: #34394f url("naboobackground.png") fixed center center;
 }
 
 #root {
@@ -112,12 +112,12 @@ body {
 }
 
 .form-control:focus {
-  border-color: #34394F;
-  box-shadow: 0 0 0 0.2rem #EEAE72;
+  border-color: #34394f;
+  box-shadow: 0 0 0 0.2rem #eeae72;
 }
 
 .btn.btn-primary {
-  background-color: #34394F;
+  background-color: #34394f;
   border-color: #192335;
   margin-top: 5px;
 }
@@ -126,13 +126,13 @@ body {
   cursor: not-allowed;
 }
 .btn.btn-link {
-  color: #344E68;
+  color: #344e68;
   font-weight: 600;
 }
 
 .card-body > em,
 .view-comment > em {
-  color: #C04217;
+  color: #c04217;
   font-size: 0.9em;
 }
 

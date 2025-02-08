@@ -1,28 +1,28 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { AddComment } from "./add-comment";
 import { ListGroup } from "react-bootstrap";
 import { ViewComment } from "./view-comment";
 
 // Internal typechecking
-CommentList.PropTypes = {
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.string.isRequired })
-  ),
-};
 
-export function CommentList(comments) {
+export function CommentList({ comments }) {
   const [commentList, setcommentList] = useState(comments);
+
+  useEffect(() => {
+    console.log("CommentList updated");
+  }, [commentList]);
+
   return (
     <>
-      <ListGroup>
+      <ListGroup className="commentList">
         {commentList.map((comment) => (
           <ListGroup.Item key={comment.id}>
-            <ViewComment />
+            <ViewComment comment={comment} />
           </ListGroup.Item>
         ))}
       </ListGroup>
-      <AddComment commentList={commentList} setCommentList={setcommentList} />
+      <AddComment setCommentList={setcommentList} />
     </>
   );
 }
