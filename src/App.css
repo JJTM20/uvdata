@@ -48,12 +48,8 @@ blockquote {
 }
 
 .view-update {
-  animation: appear 1 .5s forwards;
+  animation: appear 1 0.5s forwards;
   perspective: 400px;
-}
-.comments-list {
-  animation: slideDown 1 3s forwards;
-  transform-origin: 50px 0;
 }
 .card-grid {
   display: grid;
@@ -68,19 +64,12 @@ blockquote {
 
 .view-update {
   position: relative;
+  padding: 10px;
+  border: 5px solid #34394f;
+  border-radius: 10px;
 }
 .view-update.comments-open {
-    z-index: 1;
-}
-
-.comments-list {
-  position: absolute;
-  top: calc(100% - 16px);
-  background: white;
-    left: -16px;
-    right: -16px;
-  box-shadow: 0 0 8px 2px #344E68;
-    padding: 16px;
+  z-index: 1;
 }
 
 .comments-list ul {
@@ -91,20 +80,17 @@ blockquote {
 .comments-list ul li {
   margin: 0;
   list-style-type: none;
-  border-top: 1px solid #E4C370;
+  border-top: 1px solid #e4c370;
   padding: 16px 0;
 }
 
 body {
-  background: #34394F url('naboobackground.png') fixed center center;
-}
-
-#root {
+  background: #34394f url("naboobackground.png") fixed center center;
 }
 
 #root > .container {
   padding: 50px 0;
-  background: white;
+  background: white url("intro-background.jpeg");
 }
 
 .display-1 {
@@ -112,12 +98,12 @@ body {
 }
 
 .form-control:focus {
-  border-color: #34394F;
-  box-shadow: 0 0 0 0.2rem #EEAE72;
+  border-color: #34394f;
+  box-shadow: 0 0 0 0.2rem #eeae72;
 }
 
 .btn.btn-primary {
-  background-color: #34394F;
+  background-color: #34394f;
   border-color: #192335;
   margin-top: 5px;
 }
@@ -126,27 +112,185 @@ body {
   cursor: not-allowed;
 }
 .btn.btn-link {
-  color: #344E68;
+  color: #344e68;
   font-weight: 600;
 }
 
 .card-body > em,
 .view-comment > em {
-  color: #C04217;
+  color: #c04217;
   font-size: 0.9em;
+}
+
+.comments-list {
+  border: 3px solid #34394f;
+  border-top: none;
+  border-radius: 0 0 10px 10px; /* Only bottom corners rounded */
+  margin-top: -2px;
+}
+.comment-lg > .comment-li {
+  margin: 10px;
+  border: 1px solid #34394f;
+  border-radius: 10px;
+}
+
+.add-comment {
+  margin: 30px;
+  border-radius: 10px;
+}
+
+textarea {
+  resize: none;
 }
 
 .card-body > img {
   width: 80px;
   margin-bottom: 10px;
 }
-
-.view-comment > img {
+img {
+  border-radius: 10px;
+}
+.comment-details > img {
   width: 40px;
+  height: 40px;
   margin-bottom: 5px;
-  display: block;
+}
+.add-form {
+  border: 1px solid #34394f;
+  border-radius: 10px;
+}
+.view-comment {
+  display: flex;
+}
+.comment-header {
+  display: flex;
+  margin-right: auto;
+  flex-direction: column;
+}
+.comment-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-left: 1px solid #34394f;
+  align-self: center;
+}
+.comment-details-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-left: 10px;
+}
+.comment-details-text > p {
+  margin: 0;
+}
+.reaction-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.update-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.update-details-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-left: 10px;
+}
+.update-details-text > p {
+  margin: 0;
+}
+.update-details > img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 5px;
 }
 
 .btn.add-update-button {
   margin-top: 10px;
+}
+h1 {
+  text-align: center;
+  font-family: star-wars-font;
+  color: #ffe919;
+  margin-bottom: 70px;
+}
+
+.reaction-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 5px;
+}
+
+.icon-button {
+  background: none !important;
+  border: none !important;
+  padding: 5px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease-in-out;
+}
+.icon-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Default icon color */
+.icon-button svg {
+  width: 24px;
+  height: 24px;
+  color: #333;
+}
+
+.icon-button.like:hover svg,
+.icon-button:hover svg {
+  color: #007bff;
+}
+
+.icon-button.love:hover svg {
+  color: red;
+}
+
+.icon-button.funny:hover svg {
+  color: #e2ea00ee;
+}
+
+.reaction-count {
+  font-size: 12px;
+  color: #555;
+  font-weight: bold;
+  position: absolute;
+  right: -5px;
+  bottom: -8px;
+}
+
+.more-reactions {
+  display: flex;
+  flex-direction: row;
+}
+.more-reactions svg {
+  width: 20px;
+  height: 20px;
+}
+.more-reactions .list-group-item {
+  border: none;
+  background: transparent;
+  padding: 2px;
+}
+
+.more-reactions .list-group-item:hover {
+  cursor: pointer;
+  color: #007bff;
+}
+
+@font-face {
+  font-family: "star-wars-font";
+  src: url("Starjedi.ttf") format("truetype");
 }
