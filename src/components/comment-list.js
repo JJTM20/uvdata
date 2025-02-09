@@ -6,23 +6,19 @@ import { ViewComment } from "./view-comment";
 
 // Internal typechecking
 
-export function CommentList({ comments }) {
-  const [commentList, setcommentList] = useState(comments);
-
-  useEffect(() => {
-    console.log("CommentList updated");
-  }, [commentList]);
+export function CommentList({ commentList, setcommentList }) {
+  useEffect(() => {}, [commentList]);
 
   return (
-    <>
-      <ListGroup className="commentList">
+    <div className="comments-list">
+      <ListGroup className="comment-lg">
         {commentList.map((comment) => (
-          <ListGroup.Item key={comment.id}>
+          <ListGroup.Item key={comment.id} className="comment-li">
             <ViewComment comment={comment} />
           </ListGroup.Item>
         ))}
       </ListGroup>
       <AddComment setCommentList={setcommentList} />
-    </>
+    </div>
   );
 }

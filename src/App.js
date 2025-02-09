@@ -28,7 +28,7 @@ export function App() {
     <div className="container">
       {/* Display the newsfeed */}
       <JarJarNewsfeed
-        title="Jar Jar"
+        title="Forcebook"
         updates={updates}
         onAddUpdate={handleAddUpdate}
       />

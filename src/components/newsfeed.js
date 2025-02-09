@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { ListGroup } from "react-bootstrap";
-
 import ViewUpdate from "./view-update";
 import AddUpdate from "./add-update";
 // import AddUpdate from './add-update'

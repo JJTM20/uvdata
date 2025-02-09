@@ -51,10 +51,6 @@ blockquote {
   animation: appear 1 0.5s forwards;
   perspective: 400px;
 }
-.comments-list {
-  animation: slideDown 1 3s forwards;
-  transform-origin: 50px 0;
-}
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -68,19 +64,12 @@ blockquote {
 
 .view-update {
   position: relative;
+  padding: 10px;
+  border: 1px solid #34394f;
+  border-radius: 10px;
 }
 .view-update.comments-open {
   z-index: 1;
-}
-
-.comments-list {
-  position: absolute;
-  top: calc(100% - 16px);
-  background: white;
-  left: -16px;
-  right: -16px;
-  box-shadow: 0 0 8px 2px #344e68;
-  padding: 16px;
 }
 
 .comments-list ul {
@@ -136,17 +125,94 @@ body {
   font-size: 0.9em;
 }
 
+.comments-list {
+  border: 5px solid #34394f;
+  border-top: none;
+  border-radius: 0 0 10px 10px; /* Only bottom corners rounded */
+  margin-top: -2px;
+}
+.comment-lg > .comment-li {
+  margin: 10px;
+  border: 1px solid #34394f;
+  border-radius: 10px;
+}
+
+.add-comment {
+  margin: 30px;
+  border-radius: 10px;
+}
+
+textarea {
+  resize: none;
+}
+
 .card-body > img {
   width: 80px;
   margin-bottom: 10px;
 }
-
-.view-comment > img {
+img {
+  border-radius: 10px;
+}
+.comment-details > img {
   width: 40px;
+  height: 40px;
   margin-bottom: 5px;
-  display: block;
+}
+.add-form {
+  border: 1px solid #34394f;
+  border-radius: 10px;
+}
+.view-comment {
+  display: flex;
+}
+.comment-header {
+  display: flex;
+  margin-right: auto;
+}
+.comment-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-left: 1px solid #34394f;
+}
+.comment-details-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-left: 10px;
+}
+.comment-details-text > p {
+  margin: 0;
+}
+.update-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.update-details-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-left: 10px;
+}
+.update-details-text > p {
+  margin: 0;
+}
+.update-details > img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 5px;
 }
 
 .btn.add-update-button {
   margin-top: 10px;
+}
+h1 {
+  text-align: center;
+  font-family: star-wars-font;
+}
+
+@font-face {
+  font-family: "star-wars-font";
+  src: url("Starjedi.ttf") format("truetype");
 }
