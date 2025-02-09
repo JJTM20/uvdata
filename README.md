@@ -5,8 +5,8 @@ Welcome to this React project. Before you lies the bare basics to implement your
  - [x] Allow the user to see comments to updates
  - [x] Allow the user to add updates
  - [x] Allow the user to add comments to updates
- - [ ] Allow the user to add reactions (for example: like, dislike) to updates
- - [ ] Allow the user to add reactions (for example: angry, wow) to comments
+ - [x] Allow the user to add reactions (for example: like, dislike) to updates
+ - [x] Allow the user to add reactions (for example: angry, wow) to comments
 
  ### Remember
  - Build with reusability in mind
