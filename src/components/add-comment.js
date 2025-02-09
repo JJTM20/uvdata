@@ -10,7 +10,14 @@ export function AddComment({ setCommentList }) {
 
     setCommentList((prevComments) => [
       ...prevComments,
-      comment("Unknown", commentText, defaultProfilePic, Date.now(), uuid()),
+      comment(
+        "Unknown",
+        commentText,
+        defaultProfilePic,
+        Date.now(),
+        uuid(),
+        []
+      ),
     ]);
     setCommentText("");
   };

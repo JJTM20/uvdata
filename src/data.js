@@ -6,6 +6,12 @@ import b1droidImage from "./b1droid.jpg";
 import moment from "moment";
 import { v4 as uuid } from "uuid";
 
+export const reaction = (type, count, icon) => ({
+  type,
+  count,
+  icon,
+});
+
 const getRandomDate = () => {
   const randomNumber = Math.floor(Math.random() * Math.floor(5));
   return moment(Date.now()).subtract(randomNumber, "days").valueOf();
@@ -16,7 +22,8 @@ export const comment = (
   text,
   imageSrc,
   created = getRandomDate(),
-  updateId
+  updateId,
+  reactions
 ) => ({
   text,
   by,
@@ -24,6 +31,7 @@ export const comment = (
   imageSrc,
   id: uuid(),
   updateId,
+  reactions,
 });
 
 export const update = (by, text, imageSrc, created = getRandomDate()) => {
@@ -37,14 +45,27 @@ export const update = (by, text, imageSrc, created = getRandomDate()) => {
       comment(
         "C3P0",
         "Sir, it's very possible this asteroid is not stable",
-        c3poImage
+        c3poImage,
+        getRandomDate(),
+        uuid(),
+        [reaction("like", 1), reaction("love", 0), reaction("funny", 2)]
       ),
       comment(
         "C3P0",
         "I suggest a new strategy, Artoo: let the Wookie win",
-        c3poImage
+        c3poImage,
+        getRandomDate(),
+        uuid(),
+        [reaction("like", 100), reaction("love", 5), reaction("funny", 6)]
       ),
-      comment("B1 battle droid", "Roger, roger.", b1droidImage),
+      comment(
+        "B1 battle droid",
+        "Roger, roger.",
+        b1droidImage,
+        getRandomDate(),
+        uuid(),
+        [reaction("like", 42), reaction("love", 3), reaction("funny", 0)]
+      ),
     ],
   };
 };

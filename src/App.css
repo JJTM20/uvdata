@@ -168,12 +168,14 @@ img {
 .comment-header {
   display: flex;
   margin-right: auto;
+  flex-direction: column;
 }
 .comment-details {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   border-left: 1px solid #34394f;
+  align-self: center;
 }
 .comment-details-text {
   display: flex;
@@ -184,6 +186,11 @@ img {
 .comment-details-text > p {
   margin: 0;
 }
+.reaction-group {
+  display: flex;
+  flex-direction: row;
+}
+
 .update-details {
   display: flex;
   flex-direction: row;
@@ -210,6 +217,78 @@ img {
 h1 {
   text-align: center;
   font-family: star-wars-font;
+}
+
+.reaction-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 5px;
+}
+
+.icon-button {
+  background: none !important;
+  border: none !important;
+  padding: 5px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease-in-out;
+}
+.icon-button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Default icon color */
+.icon-button svg {
+  width: 24px;
+  height: 24px;
+  color: #333;
+}
+
+.icon-button.like:hover svg,
+.icon-button:hover svg {
+  color: #007bff;
+}
+
+.icon-button.love:hover svg {
+  color: red;
+}
+
+.icon-button.funny:hover svg {
+  color: #e2ea00ee;
+}
+
+.reaction-count {
+  font-size: 12px;
+  color: #555;
+  font-weight: bold;
+  position: absolute;
+  right: -5px;
+  bottom: -8px;
+}
+
+.more-reactions {
+  display: flex;
+  flex-direction: row;
+}
+.more-reactions svg {
+  width: 20px;
+  height: 20px;
+}
+.more-reactions .list-group-item {
+  border: none;
+  background: transparent;
+  padding: 2px;
+}
+
+.more-reactions .list-group-item:hover {
+  cursor: pointer;
+  color: #007bff;
 }
 
 @font-face {
