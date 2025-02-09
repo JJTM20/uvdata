@@ -4,11 +4,7 @@ import { AddComment } from "./add-comment";
 import { ListGroup } from "react-bootstrap";
 import { ViewComment } from "./view-comment";
 
-// Internal typechecking
-
 export function CommentList({ commentList, setcommentList }) {
-  useEffect(() => {}, [commentList]);
-
   return (
     <div className="comments-list">
       <ListGroup className="comment-lg">

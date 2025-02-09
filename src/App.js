@@ -7,7 +7,7 @@ export function App() {
   const [updates, setUpdates] = useState(() => data.updates);
 
   useEffect(() => {
-    console.log("Effect hook.");
+    console.log("Site loaded");
   }, []);
 
   const handleAddUpdate = useCallback(

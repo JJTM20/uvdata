@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { update } from "../data";
 
 export default function AddUpdate(props) {
-  const [update, setUpdateState] = useState("");
+  const [currentUpdate, setcurrentUpdate] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    props.onSubmit(update);
-    setUpdateState("");
+    props.onSubmit(currentUpdate);
+    setcurrentUpdate("");
   };
 
   const handleChange = (event) => {
-    setUpdateState(event.target.value);
+    setcurrentUpdate(event.target.value);
   };
 
   return (
@@ -25,10 +24,10 @@ export default function AddUpdate(props) {
               className="form-control form-control-sm"
               onChange={handleChange}
               name="text"
-              value={update}
+              value={currentUpdate}
             />
             <button
-              disabled={update.length === 0}
+              disabled={currentUpdate.length === 0}
               className="btn btn-primary add-update-button"
               type="submit"
             >

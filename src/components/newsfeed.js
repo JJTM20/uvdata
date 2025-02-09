@@ -3,19 +3,17 @@ import PropTypes from "prop-types";
 import { ListGroup } from "react-bootstrap";
 import ViewUpdate from "./view-update";
 import AddUpdate from "./add-update";
-// import AddUpdate from './add-update'
 
 export default function JarJarNewsfeed(props) {
   const { onAddUpdate, updates, title } = props;
-
   return (
     <div>
       <h1>{title} - Newsfeed</h1>
-      <AddUpdate onSubmit={props.onAddUpdate}></AddUpdate>
+      <AddUpdate onSubmit={onAddUpdate}></AddUpdate>
       <ListGroup>
         {updates.map((update) => (
           <ListGroup.Item key={update.id}>
-            <ViewUpdate {...update} />
+            <ViewUpdate update={update} />
           </ListGroup.Item>
         ))}
       </ListGroup>

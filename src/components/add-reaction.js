@@ -1,22 +1,79 @@
 import React, { useState } from "react";
 import { Button, ButtonGroup, ListGroup } from "react-bootstrap";
+import PropTypes from "prop-types";
 import { MdOutlineAddReaction } from "react-icons/md";
-import { LiaSpaceShuttleSolid } from "react-icons/lia";
-import { GiLightSabers } from "react-icons/gi";
 import ReactionList from "./reaction-list";
-import { FaRegAngry, FaRegSadCry } from "react-icons/fa";
-import { reaction } from "../data";
+import { reaction, availableReactionsPredefined } from "../data";
+import "../App.css";
 
-export function AddReaction() {
-  const [reactions, setReactions] = useState(comment.reactions);
+export function AddReaction({ parent, style }) {
+  const [reactions, setReactions] = useState(parent.reactions);
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [availableReactions, setAvailableReactions] = useState([
-    { type: "lightsaber", icon: <GiLightSabers /> },
-    { type: "spaceship", icon: <LiaSpaceShuttleSolid /> },
-    { type: "angry", icon: <FaRegAngry /> },
-    { type: "cry", icon: <FaRegSadCry /> },
-  ]);
-  return <div>AddReaction</div>;
+  const [availableReactions, setAvailableReactions] = useState(
+    availableReactionsPredefined.filter(
+      (reaction) => !parent.reactions.some((r) => r.type === reaction.type)
+    )
+  );
+
+  const addReaction = () => {
+    setDropdownVisible(!dropdownVisible); // Toggle the dropdown visibility
+  };
+  const handleReactionClick = (reactionType) => {
+    setReactions((prevReactions) => {
+      const existingReaction = prevReactions.find(
+        (r) => r.type === reactionType
+      );
+      console.log(reactionType);
+      if (existingReaction) {
+        console.log("reaction updated");
+        return prevReactions.map((r) =>
+          r.type === reactionType ? { ...r, count: r.count + 1 } : r
+        );
+      } else {
+        console.log("reaction added");
+
+        return [...prevReactions, reaction(reactionType, 1)];
+      }
+    });
+
+    setAvailableReactions((prevReactions) =>
+      prevReactions.filter((reaction) => reaction.type !== reactionType)
+    );
+
+    setDropdownVisible(false);
+  };
+
+  return (
+    <div className="reaction-group" style={style}>
+      <ReactionList reactions={reactions} handleClick={handleReactionClick} />
+      <Button size="sm" className="icon-button" onClick={addReaction}>
+        <MdOutlineAddReaction />
+      </Button>
+      {dropdownVisible && (
+        <ListGroup className="more-reactions">
+          {availableReactions.map((reaction) => (
+            <ListGroup.Item
+              key={reaction.type}
+              onClick={() => handleReactionClick(reaction.type)}
+            >
+              {reaction.icon}
+            </ListGroup.Item>
+          ))}
+        </ListGroup>
+      )}
+    </div>
+  );
 }
+
+AddReaction.propTypes = {
+  parent: PropTypes.shape({
+    by: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    created: PropTypes.number.isRequired,
+    imageSrc: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    reactions: PropTypes.array.isRequired,
+  }).isRequired,
+};
 
 export default AddReaction;

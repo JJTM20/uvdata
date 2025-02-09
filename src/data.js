@@ -2,9 +2,14 @@ import jarjarImage from "./jarjar.jpg";
 import r2Image from "./r2d2.jpg";
 import c3poImage from "./3po.jpg";
 import b1droidImage from "./b1droid.jpg";
-
+import { FaRegAngry, FaRegSadCry } from "react-icons/fa";
+import { LiaSpaceShuttleSolid } from "react-icons/lia";
+import { GiLightSabers } from "react-icons/gi";
+import { MdFavorite, MdThumbUp } from "react-icons/md";
+import { FaRegLaughSquint } from "react-icons/fa";
 import moment from "moment";
 import { v4 as uuid } from "uuid";
+import React from "react";
 
 export const reaction = (type, count, icon) => ({
   type,
@@ -16,6 +21,16 @@ const getRandomDate = () => {
   const randomNumber = Math.floor(Math.random() * Math.floor(5));
   return moment(Date.now()).subtract(randomNumber, "days").valueOf();
 };
+
+export const availableReactionsPredefined = [
+  { type: "lightsaber", icon: <GiLightSabers /> },
+  { type: "spaceship", icon: <LiaSpaceShuttleSolid /> },
+  { type: "angry", icon: <FaRegAngry /> },
+  { type: "cry", icon: <FaRegSadCry /> },
+  { type: "like", icon: <MdThumbUp /> },
+  { type: "love", icon: <MdFavorite /> },
+  { type: "funny", icon: <FaRegLaughSquint /> },
+];
 
 export const comment = (
   by,
@@ -34,7 +49,13 @@ export const comment = (
   reactions,
 });
 
-export const update = (by, text, imageSrc, created = getRandomDate()) => {
+export const update = (
+  by,
+  text,
+  imageSrc,
+  created = getRandomDate(),
+  reactions = []
+) => {
   return {
     by,
     text,
@@ -67,6 +88,7 @@ export const update = (by, text, imageSrc, created = getRandomDate()) => {
         [reaction("like", 42), reaction("love", 3), reaction("funny", 0)]
       ),
     ],
+    reactions,
   };
 };
 
@@ -81,17 +103,28 @@ export default {
     update(
       "Jar Jar",
       "Yousa should follow me now, okay? My warning yous: Gungans no like outsiders. Do not 'spect a warm welcome.",
-      jarjarImage
+      jarjarImage,
+      Date.parse("24 Dec 2024 00:12:00"),
+      [reaction("love", 6), reaction("funny", 32), reaction("spaceship", 25)]
     ),
     update(
       "Jar Jar",
       "The BOOOM! Getin very scared and grabin that Jedi, the pah ... mesa here",
-      jarjarImage
+      jarjarImage,
+      Date.parse("04 Dec 2024 00:12:00"),
+      [
+        reaction("like", 5),
+        reaction("love", 10),
+        reaction("funny", 7),
+        reaction("spaceship", 25),
+      ]
     ),
     update(
       "Jar Jar",
       'It\'s-A Clear Desa Separatists Made A Pact Wesa Desa Federation Du Trade. Senators, "Dellow Felagates." In Response To This Direct Threat To The Republic, Mesa Propose That The Senate Immediately Provides Emergency Powers To The Supreme Chancellor.',
-      jarjarImage
+      jarjarImage,
+      Date.now(),
+      [reaction("like", 5), reaction("love", 1), reaction("funny", 7)]
     ),
   ],
 };

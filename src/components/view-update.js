@@ -6,29 +6,30 @@ import { Check } from "react-bootstrap-icons";
 import defaultProfilePic from "../default.jpg";
 import { CommentList } from "./comment-list";
 import "../App.css";
+import AddReaction from "./add-reaction";
 
-function ViewUpdate({ handleSubmit, onSubmit, ...props }) {
-  const [update, setupdate] = useState("");
-  const [commentList, setcommentList] = useState(props.comments);
+function ViewUpdate({ update }) {
+  const [commentList, setcommentList] = useState(update.comments);
   const [showComments, setshowComments] = useState(false);
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    onSubmit(update);
-  };
   const handleShowComments = () => setshowComments((prev) => !prev);
   return (
     <div className="view-update">
-      <h3>{props.text}</h3>
+      <h3>{update.text}</h3>
+
       <div className="update-details">
-        {(props.imageSrc && <img src={props.imageSrc} alt="Update" />) || (
+        {(update.imageSrc && <img src={update.imageSrc} alt="Update" />) || (
           <img src={defaultProfilePic} alt="Update" />
         )}
         <div className="update-details-text">
-          <p>By: {props.by}</p>
-          <p>Created: {new Date(props.created).toLocaleString()}</p>
+          <p>By: {update.by}</p>
+          <p>Created: {new Date(update.created).toLocaleString()}</p>
         </div>
       </div>
+      <AddReaction
+        parent={update}
+        style={{ justifyContent: "right", marginBottom: "10px" }}
+      />
       <Button onClick={handleShowComments} className="w-100">
         {showComments ? "Hide Comments" : "Show Comments"}
       </Button>
