@@ -128,3 +128,19 @@ export default {
     ),
   ],
 };
+
+export const commentComments = [
+  comment(
+    "B1 battle droid",
+    "Roger, roger.",
+    b1droidImage,
+    getRandomDate(),
+    uuid(),
+    [reaction("like", 2), reaction("love", 3), reaction("funny", 0)]
+  ),
+  comment("R2", "Roger, roger.", r2Image, getRandomDate(), uuid(), [
+    reaction("like", 8),
+    reaction("love", 1),
+    reaction("funny", 54),
+  ]),
+];

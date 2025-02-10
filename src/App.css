@@ -35,7 +35,7 @@ blockquote {
 @keyframes slideDown {
   from {
     perspective: 1000px;
-    transform: rotateX(70deg) translateY(-2000px);
+    transform: rotateX(70deg) translateY(-100px);
   }
   50% {
     perspective: 1000px;
@@ -44,6 +44,17 @@ blockquote {
   to {
     perspective: 1000px;
     transform: none;
+  }
+}
+
+@keyframes fadeOutAndSlideUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
   }
 }
 
@@ -82,6 +93,28 @@ blockquote {
   list-style-type: none;
   border-top: 1px solid #e4c370;
   padding: 16px 0;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  color: red;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none !important;
+  border: none !important;
+  padding: 5px !important;
+}
+.delete-btn:hover {
+  color: darkred;
+  background: rgba(255, 0, 0, 0.1); /* Light hover effect */
+}
+.delete-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 body {
@@ -129,7 +162,7 @@ body {
   margin-top: -2px;
 }
 .comment-lg > .comment-li {
-  margin: 10px;
+  margin: 20px;
   border: 1px solid #34394f;
   border-radius: 10px;
 }
@@ -161,6 +194,8 @@ img {
 }
 .view-comment {
   display: flex;
+  padding: 10px;
+  animation: slideDown 1 0.3s forwards;
 }
 .comment-header {
   display: flex;
@@ -183,6 +218,10 @@ img {
 .comment-details-text > p {
   margin: 0;
 }
+.fade-out {
+  animation: fadeOutAndSlideUp 0.2s ease-out forwards;
+}
+
 .reaction-group {
   display: flex;
   flex-direction: row;

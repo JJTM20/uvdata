@@ -15,8 +15,6 @@ function ViewUpdate({ update }) {
   const handleShowComments = () => setshowComments((prev) => !prev);
   return (
     <div className="view-update">
-      <h3>{update.text}</h3>
-
       <div className="update-details">
         {(update.imageSrc && <img src={update.imageSrc} alt="Update" />) || (
           <img src={defaultProfilePic} alt="Update" />
@@ -26,9 +24,11 @@ function ViewUpdate({ update }) {
           <p>Created: {new Date(update.created).toLocaleString()}</p>
         </div>
       </div>
+      <br />
+      <h3>{update.text}</h3>
       <AddReaction
         parent={update}
-        style={{ justifyContent: "right", marginBottom: "10px" }}
+        style={{ justifyContent: "left", marginBottom: "10px" }}
       />
       <Button onClick={handleShowComments} className="w-100">
         {showComments ? "Hide Comments" : "Show Comments"}
