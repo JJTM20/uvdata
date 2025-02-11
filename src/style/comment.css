@@ -1,0 +1,74 @@
+.comments-list ul {
+  margin: 0;
+  padding: 0;
+}
+
+.comments-list ul li {
+  margin: 0;
+  list-style-type: none;
+  border-top: 1px solid #e4c370;
+  padding: 16px 0;
+}
+.comments-list {
+  border: 3px solid #34394f;
+  border-top: none;
+  border-radius: 0 0 10px 10px; /* Only bottom corners rounded */
+  margin-top: -2px;
+}
+.comment-lg > .comment-li {
+  margin: 20px;
+  border: 1px solid #34394f;
+  border-radius: 10px;
+}
+.comment-details > img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
+}
+.view-comment {
+  display: flex;
+  padding: 10px;
+  animation: slideDown 1 0.3s forwards;
+}
+.comment-header {
+  display: flex;
+  margin-right: auto;
+  flex-direction: column;
+}
+.comment-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-left: 1px solid #34394f;
+  align-self: center;
+}
+.comment-details-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-left: 10px;
+}
+.comment-details-text > p {
+  margin: 0;
+}
+.delete-btn {
+  position: absolute;
+  top: 1px;
+  right: 10px;
+  color: red;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none !important;
+  border: none !important;
+  padding: 5px !important;
+}
+.delete-btn:hover {
+  color: darkred;
+  background: rgba(255, 0, 0, 0.1); /* Light hover effect */
+}
+.delete-btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import defaultProfilePic from "../default.jpg";
-import "../App.css";
+import "../style/comment.css";
 import AddReaction from "./add-reaction";
 import { Button } from "react-bootstrap";
 import { MdDeleteOutline } from "react-icons/md";

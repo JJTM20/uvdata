@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { Check } from "react-bootstrap-icons";
 import defaultProfilePic from "../default.jpg";
 import { CommentList } from "./comment-list";
-import "../App.css";
+import "../style/update.css";
 import AddReaction from "./add-reaction";
 
 function ViewUpdate({ update }) {

@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { MdOutlineAddReaction } from "react-icons/md";
 import ReactionList from "./reaction-list";
 import { reaction, availableReactionsPredefined } from "../data";
-import "../App.css";
+import "../style/reaction.css";
 
 export function AddReaction({ parent, style }) {
   const [reactions, setReactions] = useState(parent.reactions);
@@ -23,15 +23,11 @@ export function AddReaction({ parent, style }) {
       const existingReaction = prevReactions.find(
         (r) => r.type === reactionType
       );
-      console.log(reactionType);
       if (existingReaction) {
-        console.log("reaction updated");
         return prevReactions.map((r) =>
           r.type === reactionType ? { ...r, count: r.count + 1 } : r
         );
       } else {
-        console.log("reaction added");
-
         return [...prevReactions, reaction(reactionType, 1)];
       }
     });
