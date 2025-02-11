@@ -12,13 +12,13 @@ export function ViewComment({ comment, setcommentList }) {
     useState(commentComments);
   const [isDeleting, setIsDeleting] = useState(false);
   const handleDelete = () => {
-    setIsDeleting(true); // Start the animation
+    setIsDeleting(true);
 
     setTimeout(() => {
       setcommentList((prevComments) =>
         prevComments.filter((c) => c.id !== comment.id)
       );
-    }, 200); // Delay removing from the DOM until animation finishes (match CSS duration)
+    }, 200);
   };
   const [showComments, setshowComments] = useState(false);
   const handleShowComments = () => setshowComments((prev) => !prev);

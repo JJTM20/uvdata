@@ -16,7 +16,7 @@ export function AddReaction({ parent, style }) {
   );
 
   const addReaction = () => {
-    setDropdownVisible(!dropdownVisible); // Toggle the dropdown visibility
+    setDropdownVisible(!dropdownVisible);
   };
   const handleReactionClick = (reactionType) => {
     setReactions((prevReactions) => {
