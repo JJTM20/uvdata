@@ -10,7 +10,7 @@ export function CommentList({ commentList, setcommentList }) {
       <ListGroup className="comment-lg">
         {commentList.map((comment) => (
           <ListGroup.Item key={comment.id} className="comment-li">
-            <ViewComment comment={comment} />
+            <ViewComment comment={comment} setcommentList={setcommentList} />
           </ListGroup.Item>
         ))}
       </ListGroup>

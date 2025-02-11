@@ -1,0 +1,33 @@
+.update-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.update-details-text {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-left: 10px;
+}
+.update-details-text > p {
+  margin: 0;
+}
+.update-details > img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 5px;
+}
+.view-update {
+  animation: appear 1 0.5s forwards;
+  perspective: 400px;
+}
+
+.view-update {
+  position: relative;
+  padding: 10px;
+  border: 4px solid #34394f;
+  border-radius: 10px;
+}
+.view-update.comments-open {
+  z-index: 1;
+}

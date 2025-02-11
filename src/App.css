@@ -35,7 +35,7 @@ blockquote {
 @keyframes slideDown {
   from {
     perspective: 1000px;
-    transform: rotateX(70deg) translateY(-2000px);
+    transform: rotateX(70deg) translateY(-100px);
   }
   50% {
     perspective: 1000px;
@@ -47,10 +47,17 @@ blockquote {
   }
 }
 
-.view-update {
-  animation: appear 1 0.5s forwards;
-  perspective: 400px;
+@keyframes fadeOutAndSlideUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
+
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -60,28 +67,6 @@ blockquote {
 
 .card-footer {
   position: relative;
-}
-
-.view-update {
-  position: relative;
-  padding: 10px;
-  border: 5px solid #34394f;
-  border-radius: 10px;
-}
-.view-update.comments-open {
-  z-index: 1;
-}
-
-.comments-list ul {
-  margin: 0;
-  padding: 0;
-}
-
-.comments-list ul li {
-  margin: 0;
-  list-style-type: none;
-  border-top: 1px solid #e4c370;
-  padding: 16px 0;
 }
 
 body {
@@ -122,18 +107,6 @@ body {
   font-size: 0.9em;
 }
 
-.comments-list {
-  border: 3px solid #34394f;
-  border-top: none;
-  border-radius: 0 0 10px 10px; /* Only bottom corners rounded */
-  margin-top: -2px;
-}
-.comment-lg > .comment-li {
-  margin: 10px;
-  border: 1px solid #34394f;
-  border-radius: 10px;
-}
-
 .add-comment {
   margin: 30px;
   border-radius: 10px;
@@ -150,62 +123,14 @@ textarea {
 img {
   border-radius: 10px;
 }
-.comment-details > img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 5px;
-}
+
 .add-form {
   border: 1px solid #34394f;
   border-radius: 10px;
 }
-.view-comment {
-  display: flex;
-}
-.comment-header {
-  display: flex;
-  margin-right: auto;
-  flex-direction: column;
-}
-.comment-details {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  border-left: 1px solid #34394f;
-  align-self: center;
-}
-.comment-details-text {
-  display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  margin-left: 10px;
-}
-.comment-details-text > p {
-  margin: 0;
-}
-.reaction-group {
-  display: flex;
-  flex-direction: row;
-}
 
-.update-details {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
-.update-details-text {
-  display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  margin-left: 10px;
-}
-.update-details-text > p {
-  margin: 0;
-}
-.update-details > img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 5px;
+.fade-out {
+  animation: fadeOutAndSlideUp 0.2s ease-out forwards;
 }
 
 .btn.add-update-button {
@@ -216,14 +141,6 @@ h1 {
   font-family: star-wars-font;
   color: #ffe919;
   margin-bottom: 70px;
-}
-
-.reaction-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 0 5px;
 }
 
 .icon-button {
@@ -260,34 +177,6 @@ h1 {
 
 .icon-button.funny:hover svg {
   color: #e2ea00ee;
-}
-
-.reaction-count {
-  font-size: 12px;
-  color: #555;
-  font-weight: bold;
-  position: absolute;
-  right: -5px;
-  bottom: -8px;
-}
-
-.more-reactions {
-  display: flex;
-  flex-direction: row;
-}
-.more-reactions svg {
-  width: 20px;
-  height: 20px;
-}
-.more-reactions .list-group-item {
-  border: none;
-  background: transparent;
-  padding: 2px;
-}
-
-.more-reactions .list-group-item:hover {
-  cursor: pointer;
-  color: #007bff;
 }
 
 @font-face {

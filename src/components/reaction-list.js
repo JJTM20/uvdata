@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, ButtonGroup, ButtonToolbar } from "react-bootstrap";
-import "../App.css";
+import "../style/reaction.css";
 import { MdFavorite, MdThumbUp } from "react-icons/md";
 import { FaRegLaughSquint } from "react-icons/fa";
 import { LiaSpaceShuttleSolid } from "react-icons/lia";

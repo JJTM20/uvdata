@@ -69,7 +69,7 @@ export const update = (
         c3poImage,
         getRandomDate(),
         uuid(),
-        [reaction("like", 1), reaction("love", 0), reaction("funny", 2)]
+        [reaction("like", 1), reaction("love", 5), reaction("funny", 2)]
       ),
       comment(
         "C3P0",
@@ -85,7 +85,7 @@ export const update = (
         b1droidImage,
         getRandomDate(),
         uuid(),
-        [reaction("like", 42), reaction("love", 3), reaction("funny", 0)]
+        [reaction("like", 42), reaction("love", 3), reaction("funny", 9)]
       ),
     ],
     reactions,
@@ -128,3 +128,19 @@ export default {
     ),
   ],
 };
+
+export const commentComments = [
+  comment(
+    "B1 battle droid",
+    "Roger, roger.",
+    b1droidImage,
+    getRandomDate(),
+    uuid(),
+    [reaction("like", 2), reaction("love", 3), reaction("funny", 1)]
+  ),
+  comment("R2", "Roger, roger.", r2Image, getRandomDate(), uuid(), [
+    reaction("like", 8),
+    reaction("love", 1),
+    reaction("funny", 54),
+  ]),
+];
