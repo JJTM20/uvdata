@@ -7,7 +7,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { CommentList } from "./comment-list";
 import { commentComments } from "../data";
 
-export function ViewComment({ comment, setcommentList }) {
+export function ViewComment({ comment, setcommentList, commentList }) {
   const [internalcommentList, setinternalcommentList] =
     useState(commentComments);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -24,26 +24,33 @@ export function ViewComment({ comment, setcommentList }) {
 
   const handleShowComments = () => setshowComments((prev) => !prev);
 
-  // Function to find mentions and wrap them in a link
-  const parseMentions = (text) => {
+  const parseMentions = (text, commentList) => {
     return text.split(/(@\w+)/).map((part, index) => {
       if (part.startsWith("@")) {
         const username = part.slice(1);
-        return (
-          <a
-            key={index}
-            href={`#comment-${username}`}
-            className="mention"
-            onClick={(e) => {
-              e.preventDefault();
-              document
-                .getElementById(`comment-${username}`)
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            {part}
-          </a>
-        );
+
+        // Find last comment by the mentioned user
+        const mentionedComment = [...commentList]
+          .reverse()
+          .find((c) => c.by === username);
+
+        if (mentionedComment) {
+          return (
+            <a
+              key={index}
+              href={`#comment-${mentionedComment.id}`}
+              className="mention"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById(`comment-${mentionedComment.id}`)
+                  ?.scrollIntoView({ behavior: "smooth", block: "center" });
+              }}
+            >
+              {part}
+            </a>
+          );
+        }
       }
       return part;
     });
@@ -51,7 +58,10 @@ export function ViewComment({ comment, setcommentList }) {
 
   return (
     <div id={`comment-${comment.by}`}>
-      <div className={`view-comment ${isDeleting ? "fade-out" : ""}`}>
+      <div
+        id={`comment-${comment.id}`}
+        className={`view-comment ${isDeleting ? "fade-out" : ""}`}
+      >
         <Button
           onClick={handleDelete}
           className="delete-btn"
@@ -60,7 +70,7 @@ export function ViewComment({ comment, setcommentList }) {
           <MdDeleteOutline />
         </Button>
         <div className="comment-header">
-          <h3>{parseMentions(comment.text)}</h3>
+          <h3>{parseMentions(comment.text, commentList)}</h3>
           <AddReaction parent={comment} style={{}} />
         </div>
         <div className="comment-details">

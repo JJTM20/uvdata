@@ -15,7 +15,11 @@ export function CommentList({ commentList, setcommentList }) {
               className="comment-li"
               role="listitem"
             >
-              <ViewComment comment={comment} setcommentList={setcommentList} />
+              <ViewComment
+                comment={comment}
+                setcommentList={setcommentList}
+                commentList={commentList}
+              />
             </ListGroup.Item>
           ))
         ) : (
