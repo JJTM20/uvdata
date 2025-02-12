@@ -72,3 +72,29 @@
   outline: none !important;
   box-shadow: none !important;
 }
+
+.fade-out {
+  animation: fadeOutAndSlideUp 0.2s ease-out forwards;
+}
+
+@keyframes fadeOutAndSlideUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.mention {
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mention:hover {
+  text-decoration: underline;
+}

@@ -42,7 +42,12 @@ export function AddReaction({ parent, style }) {
   return (
     <div className="reaction-group" style={style}>
       <ReactionList reactions={reactions} handleClick={handleReactionClick} />
-      <Button size="sm" className="icon-button" onClick={addReaction}>
+      <Button
+        size="sm"
+        className="icon-button"
+        aria-label="Show more reactions"
+        onClick={addReaction}
+      >
         <MdOutlineAddReaction />
       </Button>
       {dropdownVisible && (

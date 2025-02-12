@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import PropTypes from 'prop-types'
-// import moment from 'moment'
 import { Button } from "react-bootstrap";
 import { Check } from "react-bootstrap-icons";
 import defaultProfilePic from "../default.jpg";
@@ -13,24 +11,44 @@ function ViewUpdate({ update }) {
   const [showComments, setshowComments] = useState(false);
 
   const handleShowComments = () => setshowComments((prev) => !prev);
+
   return (
-    <div className="view-update">
-      <div className="update-details">
-        {(update.imageSrc && <img src={update.imageSrc} alt="Update" />) || (
-          <img src={defaultProfilePic} alt="Update" />
-        )}
+    <div
+      className="view-update"
+      role="region"
+      aria-labelledby={`update-${update.id}`}
+    >
+      <section className="update-details">
+        <img
+          src={update.imageSrc || defaultProfilePic}
+          alt={`Profile picture of ${update.by}`}
+          width="80"
+          height="80"
+        />
         <div className="update-details-text">
-          <p>By: {update.by}</p>
-          <p>Created: {new Date(update.created).toLocaleString()}</p>
+          <p>
+            <strong>By:</strong> {update.by}
+          </p>
+          <p>
+            <strong>Created:</strong>{" "}
+            {new Date(update.created).toLocaleString()}
+          </p>
         </div>
-      </div>
-      <br />
-      <h3>{update.text}</h3>
+      </section>
+
+      <h3 id={`update-${update.id}`}>{update.text}</h3>
+
       <AddReaction
         parent={update}
         style={{ justifyContent: "left", marginBottom: "10px" }}
       />
-      <Button onClick={handleShowComments} className="w-100">
+
+      <Button
+        onClick={handleShowComments}
+        className="w-100"
+        aria-label={showComments ? "Hide comments" : "Show comments"}
+        aria-pressed={showComments}
+      >
         {showComments ? "Hide Comments" : "Show Comments"}
       </Button>
 
@@ -43,4 +61,5 @@ function ViewUpdate({ update }) {
     </div>
   );
 }
+
 export default ViewUpdate;

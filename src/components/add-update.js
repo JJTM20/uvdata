@@ -30,6 +30,8 @@ export default function AddUpdate(props) {
               disabled={currentUpdate.length === 0}
               className="btn btn-primary add-update-button"
               type="submit"
+              aria-label="Add update"
+              aria-required="true"
             >
               Add update
             </button>

@@ -80,7 +80,7 @@ export const update = (
         [reaction("like", 100), reaction("love", 5), reaction("funny", 6)]
       ),
       comment(
-        "B1 battle droid",
+        "B1_battle_droid",
         "Roger, roger.",
         b1droidImage,
         getRandomDate(),
@@ -95,20 +95,20 @@ export const update = (
 export default {
   updates: [
     update(
-      "Jar Jar",
+      "JarJar",
       "Mesa called Jar Jar Binks, mesa your humble servant!",
       jarjarImage
     ),
     update("R2-D2", "Bleep boop, beep beep.", r2Image),
     update(
-      "Jar Jar",
+      "JarJar",
       "Yousa should follow me now, okay? My warning yous: Gungans no like outsiders. Do not 'spect a warm welcome.",
       jarjarImage,
       Date.parse("24 Dec 2024 00:12:00"),
       [reaction("love", 6), reaction("funny", 32), reaction("spaceship", 25)]
     ),
     update(
-      "Jar Jar",
+      "JarJar",
       "The BOOOM! Getin very scared and grabin that Jedi, the pah ... mesa here",
       jarjarImage,
       Date.parse("04 Dec 2024 00:12:00"),
@@ -120,7 +120,7 @@ export default {
       ]
     ),
     update(
-      "Jar Jar",
+      "JarJar",
       'It\'s-A Clear Desa Separatists Made A Pact Wesa Desa Federation Du Trade. Senators, "Dellow Felagates." In Response To This Direct Threat To The Republic, Mesa Propose That The Senate Immediately Provides Emergency Powers To The Supreme Chancellor.',
       jarjarImage,
       Date.now(),
@@ -131,7 +131,7 @@ export default {
 
 export const commentComments = [
   comment(
-    "B1 battle droid",
+    "B1_battle_droid",
     "Roger, roger.",
     b1droidImage,
     getRandomDate(),
