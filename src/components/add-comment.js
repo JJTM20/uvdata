@@ -37,6 +37,8 @@ export function AddComment({ setCommentList }) {
               disabled={commentText.length === 0}
               className="btn btn-primary add-update-button"
               type="submit"
+              aria-label="Add comment"
+              aria-required="true"
             >
               Add comment
             </button>

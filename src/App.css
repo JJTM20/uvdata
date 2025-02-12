@@ -47,17 +47,6 @@ blockquote {
   }
 }
 
-@keyframes fadeOutAndSlideUp {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
-
 .card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -127,10 +116,6 @@ img {
 .add-form {
   border: 1px solid #34394f;
   border-radius: 10px;
-}
-
-.fade-out {
-  animation: fadeOutAndSlideUp 0.2s ease-out forwards;
 }
 
 .btn.add-update-button {
