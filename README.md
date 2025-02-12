@@ -7,6 +7,8 @@ Welcome to this React project. Before you lies the bare basics to implement your
  - [x] Allow the user to add comments to updates
  - [x] Allow the user to add reactions (for example: like, dislike) to updates
  - [x] Allow the user to add reactions (for example: angry, wow) to comments
+ - [x] Allow the user to mention people in comment threads by using @username
+ - [x] Added WCAG attributes
 
  ### Remember
  - Build with reusability in mind
