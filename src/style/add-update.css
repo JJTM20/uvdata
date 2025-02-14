@@ -1,0 +1,79 @@
+.view-update {
+  position: relative;
+  padding: 15px;
+  border: 3px solid #34394f;
+  border-radius: 12px;
+  background: #1f2233;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: appear 0.5s ease-out forwards;
+  transition: transform 0.2s ease-in-out;
+}
+
+.view-update:hover {
+  transform: translateY(-2px);
+}
+
+.update-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.update-details-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.update-details-text > h5 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.update-details-text > .form-group {
+  margin-top: 10px;
+}
+
+.update-details-text > p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.update-details > img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #555;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-update-button {
+  margin-top: 10px;
+  background-color: #646cff;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.add-update-button:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+.add-update-button:hover {
+  background-color: #5757ff;
+}
+
+.view-update.comments-open {
+  z-index: 1;
+  border-color: #646cff;
+  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.3);
+}

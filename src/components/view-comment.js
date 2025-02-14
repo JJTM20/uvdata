@@ -29,7 +29,6 @@ export function ViewComment({ comment, setcommentList, commentList }) {
       if (part.startsWith("@")) {
         const username = part.slice(1);
 
-        // Find last comment by the mentioned user
         const mentionedComment = [...commentList]
           .reverse()
           .find((c) => c.by === username);
@@ -71,19 +70,23 @@ export function ViewComment({ comment, setcommentList, commentList }) {
         </Button>
         <div className="comment-header">
           <h3>{parseMentions(comment.text, commentList)}</h3>
-          <AddReaction parent={comment} style={{}} />
         </div>
-        <div className="comment-details">
-          {(comment.imageSrc && (
-            <img src={comment.imageSrc} alt="Commenters profile picture" />
-          )) || (
-            <img src={defaultProfilePic} alt="Commenters profile picture" />
-          )}
-          <div className="comment-details-text">
-            <p>By: {comment.by}</p>
-            <p>Created: {new Date(comment.created).toLocaleString()}</p>
+        <span className="comment-details">
+          <div className="add-reactions">
+            <AddReaction parent={comment} style={{}} />
           </div>
-        </div>
+          <span className="image-text-container">
+            {(comment.imageSrc && (
+              <img src={comment.imageSrc} alt="Commenters profile picture" />
+            )) || (
+              <img src={defaultProfilePic} alt="Commenters profile picture" />
+            )}
+            <div className="comment-details-text">
+              <p>By: {comment.by}</p>
+              <p>Created: {new Date(comment.created).toLocaleString()}</p>
+            </div>
+          </span>
+        </span>
       </div>
       <Button onClick={handleShowComments} className="w-100">
         {showComments ? "Hide Comments" : "Show Comments"}

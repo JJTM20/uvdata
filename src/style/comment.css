@@ -1,59 +1,92 @@
+.view-comment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #1f2233;
+  animation: slideDown 0.3s ease-out forwards;
+  position: relative;
+}
+
+.comment-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.comment-header h3 {
+  font-size: 24px;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.comment-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 10px;
+  justify-content: space-between;
+}
+
+.image-text-container > img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #555;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  margin-right: 5px;
+}
+.image-text-container {
+  display: flex;
+}
+
+.comment-details-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: right;
+}
+
+.comment-details-text > p {
+  margin: 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.comments-list {
+  border: 3px solid #34394f;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  margin-top: -2px;
+  background: #1f2233;
+  padding: 10px;
+}
+
 .comments-list ul {
   margin: 0;
   padding: 0;
 }
 
 .comments-list ul li {
-  margin: 0;
-  list-style-type: none;
+  list-style: none;
   border-top: 1px solid #e4c370;
   padding: 16px 0;
 }
-.comments-list {
-  border: 3px solid #34394f;
-  border-top: none;
-  border-radius: 0 0 10px 10px; /* Only bottom corners rounded */
-  margin-top: -2px;
-}
+
 .comment-lg > .comment-li {
-  margin: 20px;
+  margin: 15px;
   border: 1px solid #34394f;
   border-radius: 10px;
-}
-.comment-details > img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 5px;
-}
-.view-comment {
-  display: flex;
+  background: #2a2e4a;
   padding: 10px;
-  animation: slideDown 1 0.3s forwards;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-.comment-header {
-  display: flex;
-  margin-right: auto;
-  flex-direction: column;
-}
-.comment-details {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  border-left: 1px solid #34394f;
-  align-self: center;
-}
-.comment-details-text {
-  display: flex;
-  flex-direction: column;
-  margin-top: auto;
-  margin-left: 10px;
-}
-.comment-details-text > p {
-  margin: 0;
-}
+
 .delete-btn {
   position: absolute;
-  top: 1px;
+  top: 5px;
   right: 10px;
   color: red;
   font-size: 1.5rem;
@@ -63,11 +96,14 @@
   background: none !important;
   border: none !important;
   padding: 5px !important;
+  transition: all 0.2s ease-in-out;
 }
+
 .delete-btn:hover {
   color: darkred;
-  background: rgba(255, 0, 0, 0.1); /* Light hover effect */
+  background: rgba(255, 0, 0, 0.1);
 }
+
 .delete-btn:focus {
   outline: none !important;
   box-shadow: none !important;
@@ -97,4 +133,5 @@
 
 .mention:hover {
   text-decoration: underline;
+  text-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }

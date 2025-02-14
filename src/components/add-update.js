@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { update } from "../data";
+import "../style/add-update.css";
 
 export default function AddUpdate(props) {
   const [currentUpdate, setcurrentUpdate] = useState("");
@@ -16,7 +17,7 @@ export default function AddUpdate(props) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="card mb-3">
+      <form onSubmit={handleSubmit} className="view-update">
         <div className="card-body">
           <h5 className="card-title">Add update to newsfeed:</h5>
           <div className="form-group">
@@ -25,6 +26,7 @@ export default function AddUpdate(props) {
               onChange={handleChange}
               name="text"
               value={currentUpdate}
+              placeholder="Update your status..."
             />
             <button
               disabled={currentUpdate.length === 0}
