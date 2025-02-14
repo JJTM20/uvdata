@@ -27,6 +27,7 @@ function ReactionList({ reactions, handleClick }) {
               size="sm"
               className={`icon-button ${reaction.type}`}
               onClick={() => handleClick(reaction.type)}
+              aria-label="Add reaction"
             >
               {iconMap[reaction.type] || null}
             </Button>

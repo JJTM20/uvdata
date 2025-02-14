@@ -56,6 +56,7 @@ export function AddReaction({ parent, style }) {
             <ListGroup.Item
               key={reaction.type}
               onClick={() => handleReactionClick(reaction.type)}
+              className={reaction.type}
             >
               {reaction.icon}
             </ListGroup.Item>

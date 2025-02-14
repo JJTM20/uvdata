@@ -59,12 +59,11 @@ blockquote {
 }
 
 body {
-  background: #34394f url("naboobackground.png") fixed center center;
+  background: #34394f url("death-star.webp") fixed center center;
 }
 
 #root > .container {
-  padding: 50px 0;
-  background: white url("intro-background.jpeg");
+  padding: 5px 0;
 }
 
 .display-1 {
@@ -126,42 +125,6 @@ h1 {
   font-family: star-wars-font;
   color: #ffe919;
   margin-bottom: 70px;
-}
-
-.icon-button {
-  background: none !important;
-  border: none !important;
-  padding: 5px !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: relative;
-  transition: color 0.2s ease-in-out;
-}
-.icon-button:focus {
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-/* Default icon color */
-.icon-button svg {
-  width: 24px;
-  height: 24px;
-  color: #333;
-}
-
-.icon-button.like:hover svg,
-.icon-button:hover svg {
-  color: #007bff;
-}
-
-.icon-button.love:hover svg {
-  color: red;
-}
-
-.icon-button.funny:hover svg {
-  color: #e2ea00ee;
 }
 
 @font-face {
