@@ -11,9 +11,18 @@ export default function JarJarNewsfeed(props) {
     <div className="view-update">
       <h1 className="newsfeed-title">{title} - Newsfeed</h1>
       <AddUpdate onSubmit={onAddUpdate} />
-      <ListGroup className="update-list-group">
+      <ListGroup
+        className="update-list-group"
+        aria-live="polite"
+        aria-relevant="additions"
+      >
         {updates.map((update) => (
-          <ListGroup.Item key={update.id} className="view-update-item">
+          <ListGroup.Item
+            key={update.id}
+            className="view-update-item"
+            role="article"
+            aria-label={`Update from ${update.by || "Unknown user"}`}
+          >
             <ViewUpdate update={update} />
           </ListGroup.Item>
         ))}

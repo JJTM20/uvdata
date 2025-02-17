@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { update } from "../data";
 import "../style/add-update.css";
 
 export default function AddUpdate(props) {
@@ -17,9 +16,15 @@ export default function AddUpdate(props) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="view-update">
+      <form
+        onSubmit={handleSubmit}
+        className="view-update"
+        aria-labelledby="add-update-title"
+      >
         <div className="card-body">
-          <h5 className="card-title">Add update to newsfeed:</h5>
+          <h5 id="add-update-title" className="card-title">
+            Add update to newsfeed:
+          </h5>
           <div className="form-group">
             <textarea
               className="form-control form-control-sm"
@@ -34,6 +39,7 @@ export default function AddUpdate(props) {
               type="submit"
               aria-label="Add update"
               aria-required="true"
+              aria-disabled={currentUpdate.length === 0}
             >
               Add update
             </button>

@@ -39,6 +39,8 @@ export function ViewComment({ comment, setcommentList, commentList }) {
               key={index}
               href={`#comment-${mentionedComment.id}`}
               className="mention"
+              tabIndex={0}
+              aria-label={`Mentioned user: ${username}`}
               onClick={(e) => {
                 e.preventDefault();
                 document
@@ -60,6 +62,7 @@ export function ViewComment({ comment, setcommentList, commentList }) {
       <div
         id={`comment-${comment.id}`}
         className={`view-comment ${isDeleting ? "fade-out" : ""}`}
+        aria-live="polite"
       >
         <Button
           onClick={handleDelete}
@@ -69,18 +72,19 @@ export function ViewComment({ comment, setcommentList, commentList }) {
           <MdDeleteOutline />
         </Button>
         <div className="comment-header">
-          <h3>{parseMentions(comment.text, commentList)}</h3>
+          <h3 id={`comment-text-${comment.id}`}>
+            {parseMentions(comment.text, commentList)}
+          </h3>
         </div>
         <span className="comment-details">
           <div className="add-reactions">
             <AddReaction parent={comment} style={{}} />
           </div>
           <span className="image-text-container">
-            {(comment.imageSrc && (
-              <img src={comment.imageSrc} alt="Commenters profile picture" />
-            )) || (
-              <img src={defaultProfilePic} alt="Commenters profile picture" />
-            )}
+            <img
+              src={comment.imageSrc || defaultProfilePic}
+              alt={`Commenter for ${comment.by}`}
+            />
             <div className="comment-details-text">
               <p>By: {comment.by}</p>
               <p>Created: {new Date(comment.created).toLocaleString()}</p>
@@ -88,14 +92,22 @@ export function ViewComment({ comment, setcommentList, commentList }) {
           </span>
         </span>
       </div>
-      <Button onClick={handleShowComments} className="w-100">
+      <Button
+        onClick={handleShowComments}
+        className="w-100"
+        aria-expanded={showComments}
+        aria-controls={`comment-thread-${comment.id}`}
+        aria-label={showComments ? "Hide replies" : "Show replies"}
+      >
         {showComments ? "Hide Comments" : "Show Comments"}
       </Button>
       {showComments && (
-        <CommentList
-          commentList={internalcommentList}
-          setcommentList={setinternalcommentList}
-        />
+        <div id={`comment-thread-${comment.id}`}>
+          <CommentList
+            commentList={internalcommentList}
+            setcommentList={setinternalcommentList}
+          />
+        </div>
       )}
     </div>
   );
