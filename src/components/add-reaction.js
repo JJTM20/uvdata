@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, ButtonGroup, ListGroup } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { MdOutlineAddReaction } from "react-icons/md";
 import ReactionList from "./reaction-list";
@@ -47,6 +47,8 @@ export function AddReaction({ parent, style }) {
         className="icon-button"
         aria-label="Show more reactions"
         onClick={addReaction}
+        aria-haspopup="listbox"
+        aria-expanded={dropdownVisible}
       >
         <MdOutlineAddReaction />
       </Button>
@@ -57,6 +59,9 @@ export function AddReaction({ parent, style }) {
               key={reaction.type}
               onClick={() => handleReactionClick(reaction.type)}
               className={reaction.type}
+              aria-label={`React with ${reaction.type}`}
+              tabIndex={0}
+              aria-live="polite"
             >
               {reaction.icon}
             </ListGroup.Item>

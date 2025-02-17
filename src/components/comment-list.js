@@ -1,5 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import { AddComment } from "./add-comment";
 import { ListGroup } from "react-bootstrap";
 import { ViewComment } from "./view-comment";
